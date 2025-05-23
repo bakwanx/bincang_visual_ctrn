@@ -6,4 +6,7 @@ services:
     #      - ./turnserver.conf=/etc/turnserver.conf
     volumes:
       - ./turnserver.conf:/etc/turnserver.conf
-    network_mode: "host"
+    ports:
+      - "3478:3478/udp"
+      - "3478:3478/tcp"
+      - "5349:5349/tcp"
