@@ -3,6 +3,7 @@ services:
   coturn:
     image: instrumentisto/coturn:latest
     restart: always
+    network_mode: "host" # avoids NAT issues
     ports:
       - "3478:3478/udp"
       - "3478:3478"
