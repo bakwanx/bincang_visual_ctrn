@@ -15,5 +15,6 @@ services:
       - TURN_PASS=${{ secrets.TURN_PASS }}
     entrypoint: ["/entrypoint.sh"]
     volumes:
-      - /etc/letsencrypt/live/bincang-visual.cloud:/certs:ro
+      - /etc/letsencrypt/live/bincang-visual.cloud:/certs/live:ro
+      - /etc/letsencrypt/archive/bincang-visual.cloud:/certs/archive:ro
       - ./turnserver.conf:/etc/coturn/turnserver.conf
