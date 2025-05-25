@@ -1,0 +1,19 @@
+name: Deploy
+on: [push]
+
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: pull-to-deploy
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /home/farhan/bincang_visual_ctrn
+          git pull origin master         
+          docker-compose down && docker-compose up --build -d --remove-orphans
