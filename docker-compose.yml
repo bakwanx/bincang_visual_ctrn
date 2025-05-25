@@ -10,10 +10,10 @@ services:
     #   - "3478:3478"
     #   - "5349:5349"
     #   - "49160-49200:49160-49200/udp"
-    environment:
-      - TURN_USER=${{ secrets.TURN_USER }}
-      - TURN_PASS=${{ secrets.TURN_PASS }}
-    entrypoint: ["/entrypoint.sh"]
+    # environment:
+    #   - TURN_USER=${{ secrets.TURN_USER }}
+    #   - TURN_PASS=${{ secrets.TURN_PASS }}
+    # entrypoint: ["/entrypoint.sh"]
     volumes:
       - /etc/letsencrypt/live/bincang-visual.cloud:/certs/live:ro
       - /etc/letsencrypt/archive/bincang-visual.cloud:/certs/archive:ro
