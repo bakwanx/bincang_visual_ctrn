@@ -7,6 +7,7 @@ services:
     volumes:
       - /etc/letsencrypt/archive/bincang-visual.cloud:/certs:ro
       - ./turnserver.conf:/etc/coturn/turnserver.conf
+      - ./entrypoint.sh:/entrypoint.sh:ro
     entrypoint: ["/entrypoint.sh"]
     # we dont use ports because network_mode host
     # ports:
