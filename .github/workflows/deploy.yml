@@ -19,6 +19,7 @@ jobs:
         envs: TURN_USER,TURN_PASS
         script: |
           cd /home/farhan/bincang_visual_ctrn
+          git reset --hard HEAD
           git pull origin master  
 
           echo "Updating turnserver.conf with credentials"
