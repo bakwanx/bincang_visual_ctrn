@@ -1,10 +1,9 @@
 services:
   coturn:
-    image: my-coturn
     container_name: coturn
+    image: instrumentisto/coturn:latest
     restart: always
     network_mode: "host" # avoids NAT issues
-
     # we dont use ports because network_mode host
     # ports:
     #   - "3478:3478/udp"
