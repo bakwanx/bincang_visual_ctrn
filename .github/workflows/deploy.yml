@@ -23,6 +23,5 @@ jobs:
 
           echo "Updating turnserver.conf with credentials"
           sed -i "/^# user=/c\user=${TURN_USER}:${TURN_PASS}" turnserver.conf
-          sed -i "/^# user=/c\user=${{ secrets.TURN_USER }}:${{ secrets.TURN_PASS }}" turnserver.conf       
           
           docker compose down && docker compose up --build -d --remove-orphans
