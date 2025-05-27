@@ -18,8 +18,9 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /home/farhan/bincang_visual_ctrn
+          git reset --hard HEAD
           git pull origin master  
-          
+
           echo "Updating turnserver.conf with credentials"
           sed -i "/^# user=/c\user=${{ secrets.TURN_USER }}:${{ secrets.TURN_PASS }}" turnserver.conf       
           

@@ -15,7 +15,6 @@ services:
     environment:
       - TURN_USER=${{ secrets.TURN_USER }}
       - TURN_PASS=${{ secrets.TURN_PASS }}
-    entrypoint: ["/entrypoint.sh"]
     volumes:
       - /etc/letsencrypt/archive/bincang-visual.cloud:/certs:ro
       - ./turnserver.conf:/etc/coturn/turnserver.conf
