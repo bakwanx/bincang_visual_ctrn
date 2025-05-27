@@ -1,7 +1,7 @@
 services:
   coturn:
+    image: my-coturn
     container_name: coturn
-    image: instrumentisto/coturn:latest
     restart: always
     network_mode: "host" # avoids NAT issues
     # we dont use ports because network_mode host
@@ -14,6 +14,6 @@ services:
       - TURN_USER=${{ secrets.TURN_USER }}
       - TURN_PASS=${{ secrets.TURN_PASS }}
     entrypoint: ["/entrypoint.sh"]
-    volumes:
-      - /etc/letsencrypt/archive/bincang-visual.cloud:/certs:ro
-      - ./turnserver.conf:/etc/coturn/turnserver.conf
+    # volumes:
+    # - /etc/letsencrypt/archive/bincang-visual.cloud:/certs:ro
+    # - ./turnserver.conf:/etc/coturn/turnserver.conf
