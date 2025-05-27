@@ -21,5 +21,9 @@ jobs:
           cd /home/farhan/bincang_visual_ctrn
           git reset --hard HEAD
           git pull origin master  
+
+          export TURN_USER="${{ secrets.TURN_USER }}"
+          export TURN_PASS="${{ secrets.TURN_PASS }}"
+
           
           docker compose down && docker compose up --build -d --remove-orphans
