@@ -19,10 +19,7 @@ jobs:
         script: |
           cd /home/farhan/bincang_visual_ctrn
           git pull origin master  
-
-          cp /etc/letsencrypt/archive/bincang-visual.cloud/fullchain1.pem ./fullchain.pem
-          cp /etc/letsencrypt/archive/bincang-visual.cloud/privkey1.pem ./privkey.pem
-
+          
           echo "Updating turnserver.conf with credentials"
           sed -i "/^# user=/c\user=${{ secrets.TURN_USER }}:${{ secrets.TURN_PASS }}" turnserver.conf       
           
