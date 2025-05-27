@@ -16,14 +16,11 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        envs: TURN_USER,TURN_PASS
         script: |
           cd /home/farhan/bincang_visual_ctrn
           git reset --hard HEAD
           git pull origin master  
 
-          export TURN_USER="${{ secrets.TURN_USER }}"
-          export TURN_PASS="${{ secrets.TURN_PASS }}"
-
+          sed -i "/^# user=/c\user=${{ secrets.TURN_USER }}:${{ secrets.TURN_PASS }}" turnserver.conf
           
           docker compose down && docker compose up --build -d --remove-orphans

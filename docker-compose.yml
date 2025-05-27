@@ -1,12 +1,12 @@
 services:
   coturn:
-    build: .
     container_name: coturn
     image: instrumentisto/coturn:latest
     restart: always
     network_mode: "host" # avoids NAT issues
     volumes:
       - /etc/letsencrypt/archive/bincang-visual.cloud:/certs:ro
+      - ./turnserver.conf:/etc/coturn/turnserver.conf
     # we dont use ports because network_mode host
     # ports:
     #   - "3478:3478/udp"
