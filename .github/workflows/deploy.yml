@@ -21,8 +21,5 @@ jobs:
           cd /home/farhan/bincang_visual_ctrn
           git reset --hard HEAD
           git pull origin master  
-
-          echo "Updating turnserver.conf with credentials"
-          sed -i "/^#user=/c\user=${TURN_USER}:${TURN_PASS}" turnserver.conf
           
           docker compose down && docker compose up --build -d --remove-orphans
